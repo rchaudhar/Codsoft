@@ -1,0 +1,41 @@
+while(1):
+  a=input("1.Division\n2.Multiplication\n3.Addition\n4.Subtraction\n5.Remainder\nEnter the particular number for the operation you want to perform or 'no' to stop the process: ").lower()
+  a=a.replace(" ","")
+  dict={"1":"/","2":"*","3":"+","4":"-","5":"%"}
+  b=list(dict.keys())
+  if(a=="no"):
+    break
+  elif a in b:
+    fo=0
+    while(fo==0):
+      c=input("Enter the first number or 'no' to stop the process: ").lower()
+      c=c.replace(" ","")
+      d=c.replace(".","")
+      if(c.count(".")>1):
+        print("Enter valid number")
+      elif(c=="no"):
+        exit()
+      elif(d.isdigit()==True):
+        fo=1
+        ft=0
+        while(ft==0):
+          e=input("Enter the second number or 'no' to stop the process: ").lower()
+          e=e.replace(" ","") 
+          f=e.replace(".","")
+          if(e.count(".")>1):
+            print("Enter valid number")
+          elif(e=="no"):
+            exit()
+          elif(f.isdigit()==True):
+            if((a=="1" or a=="5") and  float(e)==0):
+              print("Undefined")
+              ft=1
+            else:
+              print(eval(c+dict[a]+e))
+              ft=1
+          else:
+            print("Enter valid number")
+      else:
+        print("Enter valid number")
+  else:
+    print("Enter valid number")
