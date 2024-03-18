@@ -1,0 +1,52 @@
+print("INSTRUCTIONS:\n1. Start by selecting either 'rock,' 'paper,' or 'scissors.'\n2. The computer will make its choice too.\n3. The outcome will be displayed based on the rules: rock beats scissors, scissors beat paper, and paper beats rock.\n4. If both you and the computer choose the same option, it's a tie.\n5. Keep track of your score against the computer's after each round.\n6. Decide whether to continue playing after each round by entering 'yes' or 'no.'\n7. If you choose 'no,' the game ends, and the winner (either you or the computer) with the higher score is declared.\n8. In case of ties in scores, the entire game is a tie.\n9. Remember, for any invalid inputs, your round will be forfeited.\n10. Then, decide whether to continue the game or not.\n")
+import random 
+a=0
+b=0
+while(1):
+    c=input("enter a choice 'rock' , 'paper' or 'scissors': ").lower()
+    c=c.replace(" ","")
+    dict={'rock':1,'scissors':2,'paper':3}
+    d=list(dict.keys())
+    if c in d:
+        e=dict[c]
+        f=random.choice(['rock','paper','scissors'])
+        g=dict[f]
+        if(e==g):
+            print("It is a tie\nyour choice: ",c,"\ncomputer choice: ",f,"\nyour score: ",a,"\ncomputer score: ",b)
+        elif(e==1 and g==3):
+            print("you lost")
+            b=b+1
+            print("your choice: ",c,"\ncomputer choice: ",f,"\nyour score: ",a,"\ncomputer score: ",b)
+        elif(g==1 and e==3):
+            print("you won")
+            a=a+1
+            print("your choice: ",c,"\ncomputer choice: ",f,"\nyour score: ",a,"\ncomputer score: ",b)
+        elif(e<g):
+            print("you won")
+            a=a+1
+            print("your choice: ",c,"\ncomputer choice: ",f,"\nyour score: ",a,"\ncomputer score: ",b)
+        else:
+            print("you lost")
+            b=b+1
+            print("your choice: ",c,"\ncomputer choice: ",f,"\nyour score: ",a,"\ncomputer score: ",b)
+    else:
+        print("enter a valid choice")
+    h=0
+    while(h==0):
+        i=input("type 'yes' to play again and 'no' to stop playing: ").lower()
+        i=i.replace(" ","")
+        if(i=='yes'):
+            h=1
+        elif(i=='no'):
+            if(a>b):
+                print("you won the game")
+                exit()
+            elif(b>a):
+                print("you lost the game")
+                exit()
+            else:
+                print("the game is a tie")
+                exit()
+        else:
+            h=0
+            print("enter a valid choice")
